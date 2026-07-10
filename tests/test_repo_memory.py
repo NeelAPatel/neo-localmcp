@@ -4,6 +4,7 @@ import pytest
 
 from neo_localmcp.retrieval import repo_memory
 
+# ci-verify: confirm installer skip on a non-installer-only PR
 pytestmark = pytest.mark.retrieval
 
 
