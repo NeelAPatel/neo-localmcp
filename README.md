@@ -24,19 +24,23 @@ search and repeated full-file reads. This adds cost, noise, and stale context.
 The current implementation provides a complete local repository-context
 workflow:
 
-- **Builds persistent repository memory.** A shared SQLite store keeps
+- **Builds persistent repository memory.** 
+  -  A shared SQLite store keeps
   repository identity, indexed files, symbols, full-text search data, hashes,
   freshness metadata, and bounded retrieval history.
 - **Retrieves current, bounded context.** Natural-language tasks plus known
   symbols or paths are normalized, ranked, and returned as exact file excerpts
   with line ranges, hashes, Git state, and freshness signals.
-- **Keeps the deterministic path primary.** Hash-aware refresh updates changed
+- **Keeps the deterministic path primary.** 
+  -   Hash-aware refresh updates changed
   files, complete indexes prune removed files, and stale or capped indexes are
   reported instead of silently treated as complete.
-- **Adds optional local AI enrichment.** Ollama can create source-hash-keyed
+- **Adds optional local AI enrichment.**  
+  -  Ollama can create source-hash-keyed
   summaries, generate embeddings, and apply an additive semantic rerank. If it
   is unavailable, deterministic retrieval continues.
-- **Operates through explicit boundaries.** MCP and CLI surfaces support
+- **Operates through explicit boundaries.**  
+  -  MCP and CLI surfaces support
   indexing, lookup, diagnostics, context retrieval, summaries, and exact
   developer-approved patch validation/application. Managed setup supports
   Claude Code, Claude Desktop, and Codex on macOS and Windows.
@@ -97,15 +101,19 @@ change. Ollama is optional, and Linux lifecycle support is not yet shipped.
 
 ## What comes next
 
-- **Onboarding distribution — planned:** the 1.2.2 plan proposes an idempotent
+- **Onboarding distribution — planned:**  
+  -  the 1.2.2 plan proposes an idempotent
   bootstrap-repo CLI command that can add agent guidance and a generated usage
   reference to an indexed repository.
-- **Specialized model selection — future:** hardware-aware model
+- **Specialized model selection — future:**  
+  -  hardware-aware model
   recommendations remain deferred; current recommendations do not inspect
   hardware.
-- **Integration depth — future:** more agent-rule surfaces are intentionally
+- **Integration depth — future:**  
+  -  more agent-rule surfaces are intentionally
   deferred until there is concrete demand.
-- **Scaling principle:** extend deterministic retrieval through narrow,
+- **Scaling principle:**  
+  -  extend deterministic retrieval through narrow,
   testable components and explicit integration contracts, not unrestricted
   tool access for one general-purpose model.
 
